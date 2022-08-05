@@ -1,0 +1,39 @@
+.img{
+    width: 45px;
+    margin-left: 10px;
+    animation: rotate 2s infinite linear;
+}
+
+
+/* animation for rotation */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.input{
+  position: absolute;
+  right: 18em;
+  border-radius: 8px;
+  outline: none;
+  border: none;
+  color: black;
+  padding: 5px 10px;
+  width: 180px;
+}
+.hover{
+  background-color: slategrey;
+  padding: 8px 16px;
+  border-radius: 100px;
+  border: 1px solid gold;
+  color: white;
+  position: absolute;
+  top: 80%;
+  right: 14.5%;
+  font-size: 0.8em;
+  z-index: 1;
+}

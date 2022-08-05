@@ -1,34 +1,82 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Cash Paring Front End 
 
-## Getting Started
+# Thems 
+ all accorss application  
+ main 5 Thems 
+ also relate them with Back end  so next time user se again Login 
 
-First, run the development server:
+## URL
+    www.cashparing.se/frontendview
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+# example  
+user will buy domain and add products and items 
+    www.honda.com 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+   /Hot Products 
+   /onsale , offers 
+   /static header  fixed at Top 
+# Routes 
+    /product/detail/{productNo}
+    /products/list
+    /purchase
+    /comparison-products;
+    /billing-details 
+    /search 
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Featurs     
+# For products 
+    SEO and products details   and Website 
+    viedo Links of product 
+    Images 
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+ # Similar Products
+    related Products 
+    shopping card Page 
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+# 
+Main Componets 
+# Header  , Footer  , Slider     
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## Packages 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Redux   
+ for Data sharing 
+# Styles Components 
+  for styling 
+# React Icons
+    
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# Custom Hooks 
+ all Hooks need for functionalily
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# compontes
+ Layout components for all Page sto be Lay Put 
+ 
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+Three sub drop down on one Tab 
+Hover  clor +   Text details 
+One at time be open 
+Hover  text  box 
+
+## Errors 
+ slider are trigering not right 
+ <!--  -->
+
+
+re-useable Hove , Click , Button , topNav
+
+
+get all Hooks 
+
+ <!-- https://www.30secondsofcode.org/react/t/hooks/p/1 -->
+ <!-- https://usehooks-ts.com/react-hook/use-timeout -->
+
+
+
+ # GIT
+ git add . 
+ git commit -m "data" 
+ git push -u -f origin main
