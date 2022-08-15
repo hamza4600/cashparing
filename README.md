@@ -80,3 +80,8 @@ get all Hooks
  git add . 
  git commit -m "data" 
  git push -u -f origin main
+
+ <!-- Font of app -->
+
+cOLORS
+ <!-- https://cssgradient.io/shades-of-blue/ -->

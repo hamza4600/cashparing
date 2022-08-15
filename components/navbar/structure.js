@@ -34,9 +34,13 @@ export const NavbarIcons = styled.div`
     justify-content: space-between;
     align-items: center;
     width: 12em;
+
     //  apply css on all childern 
     > * {
         cursor: pointer;
+        margin-bottom: 5px;
+        display: flex;
+        align-items: center;
     }
     `;
 
@@ -48,9 +52,10 @@ export const TopNavTab = styled.div`
     align-items: flex-start;
     flex: auto;
     overflow: auto;
-    width: 200px;
+    width: 240px;
     height: 100vh;
-    background-color: #00002e;;    
+    margin-top: 2px;
+    background-color: #10355a;    
     color: black;
     position: absolute;
     left : ${props => props.left ? "0" : ""};
@@ -121,3 +126,45 @@ export const TopNavTab = styled.div`
         display: none;
     }       
 `;    
+
+
+export const NavbarTab = styled.div`
+    width: 100%;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid black;
+    cursor: pointer;
+    padding-left: 5em;
+    
+    :hover {
+        background-color: black;
+        color: #00FFFF;
+    }
+    :active {
+        background-color: slategrey;
+        color: black;
+    }
+    
+    @media (max-width: 768px) {
+    }
+    `;
+
+
+export const NavList = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    overflow: auto;
+    }
+    `;      
+
+export const NavListData = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    overflow: auto;
+    
+    `;

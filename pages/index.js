@@ -26,11 +26,7 @@ export default function Home() {
     {/* <Pageseo  title={"Cash Paring"} description={"Cash Paring Details and description "} url={url}/> */}
     
     <Layout>
-      <h1> Cash paring </h1>
-      <h1> Cash paring </h1>
-      <h1> Cash paring </h1>
-      <h1> Cash paring </h1>
-      <h1> Cash paring </h1>
+      <h1> Main Page </h1>
        
     </Layout>
 

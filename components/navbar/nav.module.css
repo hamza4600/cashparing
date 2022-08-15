@@ -1,6 +1,8 @@
-.img{
+.img {
     width: 45px;
     margin-left: 10px;
+    display: flex;
+    align-items: center;
     animation: rotate 2s infinite linear;
 }
 
@@ -17,23 +19,45 @@
 
 .input{
   position: absolute;
-  right: 18em;
-  border-radius: 8px;
+  right: 16em;
   outline: none;
   border: none;
   color: black;
   padding: 5px 10px;
-  width: 180px;
+  width: 300px;
+  height: 35px;
+  margin-top: 6px;
+  background: black;
+  font-size: 16px;
+  border: 1px solid white;
+  font-weight: 400;
+  color:  #7DF9FF;
 }
 .hover{
-  background-color: slategrey;
   padding: 8px 16px;
   border-radius: 100px;
-  border: 1px solid gold;
-  color: white;
+  color: black;
   position: absolute;
   top: 80%;
-  right: 14.5%;
+  right: 8em;
   font-size: 0.8em;
   z-index: 1;
+  font-size: 20px;
 }
+
+.List{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column;
+}
+.Listz{
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  
+}
+ 

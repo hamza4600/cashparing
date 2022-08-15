@@ -1,4 +1,4 @@
-import { Nav, NavbarIcons, TopNavTab } from "./structure"
+import { Nav, NavbarIcons, NavbarTab, NavList, NavListData, TopNavTab } from "./structure"
 
 // AiOutlineMenu
 import { AiOutlineMenu } from "react-icons/ai";
@@ -59,15 +59,15 @@ return(<>
             </div>
             <NavbarIcons>
                 { serach ? <SearchBar/> : null }
-                <p  ref={hoverref} style={{marginTop:"10px"}}>
-                    HOME 
-                    {isHovering ? <span  className={styles.hover} >Home </span> : null} 
+                <p ref={hoverref} style={{marginTop:"1px"}}>
+                    HOME
+                    {isHovering ? <span className={styles.hover}>Home </span> : null} 
                 </p>
                 
-                <TopNavIcons                onClick={toptoggle} />
+                <TopNavIcons size={20}              onClick={toptoggle} />
                 <FiSearch size={20}         onClick={searchbar}/>
-                <HiOutlineUser size={22}    onClick={userdropdown}/>  
-                <FiFlag size={22}           onClick={flagdropdown}  />
+                <HiOutlineUser size={20}    onClick={userdropdown}/>  
+                <FiFlag size={20}           onClick={flagdropdown}  />
             </NavbarIcons>
         </Nav>
     </>)
@@ -83,16 +83,72 @@ export const TopNavIcons =({onClick})=>{
 
 // top drop down menu
 export const TopDropDown = ()=>{
+    //  data for drop down menu will be in array
+    const arr= [ "Home", "About", "Services", "Contact" , "Login" ];
+
+    const [ismenu , optionsMenu] =useToggelDropDown({initialState: false});
+    const [isSho , optionsSho] =useToggelDropDown({initialState: false});
+    const [ismenuTwo , optionsShoTwo] =useToggelDropDown({initialState: false});
+
+    const Open =()=>{
+        optionsMenu.toggle();
+        optionsShoTwo.off();
+
+    }
+ 
+    const hand=()=>{
+        optionsSho.toggle();
+    }
+    
+    const handTwo=()=>{
+        optionsShoTwo.toggle();
+        optionsMenu.off();
+    }
     return(<>
         <TopNavTab left={true}>
 
-            <p>HOME</p>
-            <p>ABOUT</p>
-            <p>SERVICES</p>
-            <p>CONTACT</p>
-            <p>BLOG</p>
-            <p>FAQ</p>
-            <p>SHOP</p>
+
+    <NavbarTab  onClick={Open}>One Data</NavbarTab>
+    {ismenu ? 
+    <NavList>
+        <NavbarTab> One</NavbarTab>
+        <NavbarTab> Two</NavbarTab>
+        <NavbarTab> Three</NavbarTab>
+        <NavbarTab> Foure</NavbarTab>
+
+        <NavListData onClick={hand}>
+            <NavbarTab>Sub Drop Downs</NavbarTab>
+                {isSho? <div style={{width:"100%"}}>
+                    <NavbarTab>OPne</NavbarTab>
+                    <NavbarTab>OPne</NavbarTab>
+                    <NavbarTab>OPne</NavbarTab>
+                    <NavbarTab>OPne</NavbarTab>
+                </div> : null }
+        </NavListData>
+     
+     </NavList> : null}
+
+     {/* Two */}
+     <NavbarTab  onClick={Open}>Two Data</NavbarTab>
+    {ismenuTwo ? 
+    <NavList>
+        <NavbarTab> One</NavbarTab>
+        <NavbarTab> Two</NavbarTab>
+        <NavbarTab> Three</NavbarTab>
+        <NavbarTab> Foure</NavbarTab>
+
+        <NavListData onClick={handTwo}>
+            <NavbarTab>Sub Drop Downs</NavbarTab>
+                {isSho? <div style={{width:"100%"}}>
+                    <NavbarTab>OPne</NavbarTab>
+                    <NavbarTab>OPne</NavbarTab>
+                    <NavbarTab>OPne</NavbarTab>
+                    <NavbarTab>OPne</NavbarTab>
+                </div> : null }
+        </NavListData>
+     
+     </NavList> : null}  
+
 
 
         </TopNavTab>
@@ -105,11 +161,17 @@ export const TopDropDown = ()=>{
 export const FlagDropDown = ()=>{
     return(<>
         <TopNavTab right={true}>
-            <p>English</p>
-            <p>French</p>
-            <p>Spanish</p>
-            <p>German</p>
-            <p>Italian</p>
+            <NavbarTab> English</NavbarTab>
+            <NavbarTab> English</NavbarTab>
+            <NavbarTab> French</NavbarTab>
+            <NavbarTab> Spanish</NavbarTab>
+            <NavbarTab> German</NavbarTab>
+            <NavbarTab> Italian</NavbarTab>
+            <NavbarTab> Italian</NavbarTab>
+            <NavbarTab> Italian</NavbarTab>
+            <NavbarTab> Italian</NavbarTab>
+            <NavbarTab> Italian</NavbarTab>
+
         </TopNavTab>
     </>)
 }
@@ -119,18 +181,17 @@ export const FlagDropDown = ()=>{
 export const UserDropDown =()=> {
     return(<>
         <TopNavTab right={true}>
-            <p>My Account</p>
-            <p>My Orders</p>
-            <p>My Wishlist</p>
-            <p>My Cart</p>
-            <p>My Address</p>
-            <p>My Profile</p>
-            <p>My Settings</p>
-            <p>My Logout</p>
+            <NavbarTab> My Account</NavbarTab>
+            <NavbarTab> My Orders</NavbarTab>
+            <NavbarTab> My Wishlist</NavbarTab>
+            <NavbarTab> My Cart</NavbarTab>
+            <NavbarTab> My Address</NavbarTab>
+            <NavbarTab> My Profile</NavbarTab>
+            <NavbarTab> My Settings</NavbarTab>
+            <NavbarTab> My Logout</NavbarTab>
         </TopNavTab>
         
     </>)
-
 }
 
 
@@ -139,3 +200,38 @@ export const SearchBar =()=>{
         <input className={styles.input} type="text" placeholder="Search"/>
     </>)
 }
+
+
+// dropdown on clikck
+export const DropDown =({title})=>{
+    const [ismenu , optionsMenu] =useToggelDropDown({initialState: false});
+    const [isSho , optionsSho] =useToggelDropDown({initialState: false});
+    const Open =()=>{
+        optionsMenu.toggle();
+    }
+ 
+    const hand=()=>{
+        optionsSho.toggle();
+    }
+    return(<>
+    <NavbarTab  onClick={Open}>{title}</NavbarTab>
+    {ismenu ? 
+    <NavList>
+        <NavbarTab> One</NavbarTab>
+        <NavbarTab> Two</NavbarTab>
+        <NavbarTab> Three</NavbarTab>
+        <NavbarTab> Foure</NavbarTab>
+
+        <NavListData onClick={hand}>
+            <NavbarTab>Sub Drop Downs</NavbarTab>
+                {isSho? <div style={{width:"100%"}}>
+                    <NavbarTab>OPne</NavbarTab>
+                    <NavbarTab>OPne</NavbarTab>
+                    <NavbarTab>OPne</NavbarTab>
+                    <NavbarTab>OPne</NavbarTab>
+                </div> : null }
+        </NavListData>
+     
+     </NavList> : null}
+    </>)
+} 

@@ -27,7 +27,7 @@ export const Main = styled.main`
     width: 100%;
     min-height: 100vh;
     height: auto;
-    background-color: blue;     
-    color: white;
+    background-color: white;     
+    color: black;
     flex: 1;
     `;
