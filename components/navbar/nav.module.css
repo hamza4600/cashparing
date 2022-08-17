@@ -58,6 +58,31 @@
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  
 }
+.Home{
+  margin-top: 1px;
+}
+
+/* for mobile css */
+
+@media screen and (max-width: 768px) {
+ 
+  .Home{
+    display: none !important;
+  }
+  .input{
+    right: 12em;
+    width: 250px;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .input{
+    top: 2.4em;
+    width: 100vw;
+    right: 0.2em;
+    /* display: none !important; */
+  }
+}
+
  

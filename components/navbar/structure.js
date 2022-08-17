@@ -17,13 +17,16 @@ export const Nav = styled.nav`
     background-color: black;
     color: white;
 
-    @media (max-width: 768px) {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+    @media (max-width: 900px) {
+        flex-direction: row;
+        padding: 0px 20px;
+        justify-content: space-between;
         height: 100%;
-        padding: 0;
         border-bottom: none;
+    }
+
+    @media (max-width: 768px) {
+        padding: 0px 15px ;
     }
 `;
 
@@ -41,6 +44,10 @@ export const NavbarIcons = styled.div`
         margin-bottom: 5px;
         display: flex;
         align-items: center;
+    }
+
+    @media (max-width: 768px) {
+        width: 8.5em;
     }
     `;
 
@@ -69,25 +76,25 @@ export const TopNavTab = styled.div`
     @keyframes topdown {
     0% {
         overflow: hidden;
-        width: 200px;
-        height: 0vh;
+        width: 240px;
+        height: 100vh;
         left: 0;
         }
     30% {
         overflow: hidden;
-        width: 200px;
-        height: 30vh;
+        width: 240px;
+        height: 100vh;
         left: 0;
         }            
     40% {
         overflow: hidden;
-        width: 200px;
-        height: 60vh;
+        width: 240px;
+        height: 100vh;
         left: 0;
     }
     100% {
         overflow: hidden;
-        width: 200px;
+        width: 240px;
         height: 100vh;
         left: 0;
         }
@@ -96,26 +103,26 @@ export const TopNavTab = styled.div`
     @keyframes slider {
         0% {
             overflow: hidden;
-            width: 200px;
+            width: 240px;
             height: 100vh;
             right:0px;
             
             }
         30% {
             overflow: hidden;
-            width: 200px;
+            width: 240px;
             height: 100vh;
             right:0px;
             }            
         40% {
             overflow: hidden;
-            width: 200px;
+            width: 240px;
             height: 100vh;  
             right:0px;  
         }
         100% {
             overflow: hidden;
-            width: 200px;
+            width: 240px;
             height: 100vh;
             right:0px;
             }
@@ -123,7 +130,9 @@ export const TopNavTab = styled.div`
 
     ;
     @media (max-width: 768px) {
-        display: none;
+        margin-top: 0px;
+        // width: 200px;
+        // display: none;
     }       
 `;    
 
@@ -135,7 +144,8 @@ export const NavbarTab = styled.div`
     align-items: center;
     border-bottom: 1px solid black;
     cursor: pointer;
-    padding-left: 5em;
+    padding-left: 2em;
+    // props need to be passed 
     
     :hover {
         background-color: black;

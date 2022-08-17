@@ -59,12 +59,12 @@ return(<>
             </div>
             <NavbarIcons>
                 { serach ? <SearchBar/> : null }
-                <p ref={hoverref} style={{marginTop:"1px"}}>
+                <p ref={hoverref} className={styles.Home}>
                     HOME
                     {isHovering ? <span className={styles.hover}>Home </span> : null} 
                 </p>
                 
-                <TopNavIcons size={20}              onClick={toptoggle} />
+                <TopNavIcons size={20}      onClick={toptoggle} />
                 <FiSearch size={20}         onClick={searchbar}/>
                 <HiOutlineUser size={20}    onClick={userdropdown}/>  
                 <FiFlag size={20}           onClick={flagdropdown}  />
@@ -89,55 +89,80 @@ export const TopDropDown = ()=>{
     const [ismenu , optionsMenu] =useToggelDropDown({initialState: false});
     const [isSho , optionsSho] =useToggelDropDown({initialState: false});
     const [ismenuTwo , optionsShoTwo] =useToggelDropDown({initialState: false});
+    const [category , categorySho] =useToggelDropDown({initialState: false});
 
     const Open =()=>{
         optionsMenu.toggle();
         optionsShoTwo.off();
-
     }
  
-    const hand=()=>{
+    const handTwo=()=>{
         optionsSho.toggle();
     }
     
-    const handTwo=()=>{
+    const OpenTwo=()=>{
         optionsShoTwo.toggle();
         optionsMenu.off();
+        category.off();
     }
+    const showcaterory=()=>{
+        categorySho.toggle();
+    }
+
     return(<>
+
         <TopNavTab left={true}>
-
-
-    <NavbarTab  onClick={Open}>One Data</NavbarTab>
+    
+    <NavbarTab onClick={showcaterory}>Main Categories</NavbarTab>
+    { category ?  
+    <div style={{width: "100%"}}>
+    <NavbarTab  >Automotive</NavbarTab>
+    <NavbarTab  >Medican</NavbarTab>
+    <NavbarTab  >Garments</NavbarTab>
+    <NavbarTab  >Shoes</NavbarTab>
+    <NavbarTab  onClick={Open}>Food</NavbarTab>
+    </div>
+    : null }
     {ismenu ? 
     <NavList>
-        <NavbarTab> One</NavbarTab>
-        <NavbarTab> Two</NavbarTab>
-        <NavbarTab> Three</NavbarTab>
-        <NavbarTab> Foure</NavbarTab>
-
-        <NavListData onClick={hand}>
-            <NavbarTab>Sub Drop Downs</NavbarTab>
+        
+        <NavListData onClick={handTwo}>
+            <NavbarTab>SUB AC Services </NavbarTab>
                 {isSho? <div style={{width:"100%"}}>
-                    <NavbarTab>OPne</NavbarTab>
-                    <NavbarTab>OPne</NavbarTab>
-                    <NavbarTab>OPne</NavbarTab>
-                    <NavbarTab>OPne</NavbarTab>
+                    <NavbarTab>Haier 310</NavbarTab>
+                    <NavbarTab>AVL</NavbarTab>
+                    <NavbarTab>Mahl</NavbarTab>
+                    <NavbarTab>BrainBee</NavbarTab>
                 </div> : null }
         </NavListData>
+
+        <NavbarTab> Comprosser</NavbarTab>
+        <NavbarTab> Diagnoises</NavbarTab>
+        <NavbarTab> Electric Cable</NavbarTab>
+        <NavbarTab> Gas Extraction</NavbarTab>
+        <NavbarTab> Lift</NavbarTab>
+        <NavbarTab> Software</NavbarTab>
+        <NavbarTab> Tools</NavbarTab>
+        <NavbarTab> Spray Baths</NavbarTab>
+        <NavbarTab> Tyre Services</NavbarTab>
+
      
      </NavList> : null}
 
+
      {/* Two */}
-     <NavbarTab  onClick={Open}>Two Data</NavbarTab>
+     <NavbarTab  onClick={OpenTwo}>Contact Us</NavbarTab>
     {ismenuTwo ? 
     <NavList>
-        <NavbarTab> One</NavbarTab>
-        <NavbarTab> Two</NavbarTab>
-        <NavbarTab> Three</NavbarTab>
-        <NavbarTab> Foure</NavbarTab>
+        <NavbarTab> Our Services</NavbarTab>
+        <NavbarTab> News </NavbarTab>
+        <NavbarTab> About Us</NavbarTab>
+        <NavbarTab> Events</NavbarTab>
+        <NavbarTab> Terms</NavbarTab>
+        <NavbarTab> Techinical Support</NavbarTab>
+        <NavbarTab> Contact Us</NavbarTab>
 
-        <NavListData onClick={handTwo}>
+        {/* <NavListData onClick={handTwo}>
             <NavbarTab>Sub Drop Downs</NavbarTab>
                 {isSho? <div style={{width:"100%"}}>
                     <NavbarTab>OPne</NavbarTab>
@@ -145,7 +170,7 @@ export const TopDropDown = ()=>{
                     <NavbarTab>OPne</NavbarTab>
                     <NavbarTab>OPne</NavbarTab>
                 </div> : null }
-        </NavListData>
+        </NavListData> */}
      
      </NavList> : null}  
 
@@ -159,18 +184,23 @@ export const TopDropDown = ()=>{
 
 // Flag drop down
 export const FlagDropDown = ()=>{
+
     return(<>
         <TopNavTab right={true}>
             <NavbarTab> English</NavbarTab>
-            <NavbarTab> English</NavbarTab>
-            <NavbarTab> French</NavbarTab>
+            <NavbarTab> Finnish</NavbarTab>
             <NavbarTab> Spanish</NavbarTab>
+            <NavbarTab> French</NavbarTab>
             <NavbarTab> German</NavbarTab>
             <NavbarTab> Italian</NavbarTab>
-            <NavbarTab> Italian</NavbarTab>
-            <NavbarTab> Italian</NavbarTab>
-            <NavbarTab> Italian</NavbarTab>
-            <NavbarTab> Italian</NavbarTab>
+            <NavbarTab> Russion</NavbarTab>
+            <NavbarTab> Portuguese</NavbarTab>
+            <NavbarTab> Turkish</NavbarTab>
+            <NavbarTab> Dutch</NavbarTab>
+            <NavbarTab> Swedish</NavbarTab>
+            <NavbarTab> Norwegian</NavbarTab>
+            <NavbarTab> Danish</NavbarTab>
+            <NavbarTab> Polish</NavbarTab>
 
         </TopNavTab>
     </>)
@@ -181,14 +211,10 @@ export const FlagDropDown = ()=>{
 export const UserDropDown =()=> {
     return(<>
         <TopNavTab right={true}>
-            <NavbarTab> My Account</NavbarTab>
-            <NavbarTab> My Orders</NavbarTab>
-            <NavbarTab> My Wishlist</NavbarTab>
-            <NavbarTab> My Cart</NavbarTab>
-            <NavbarTab> My Address</NavbarTab>
-            <NavbarTab> My Profile</NavbarTab>
-            <NavbarTab> My Settings</NavbarTab>
-            <NavbarTab> My Logout</NavbarTab>
+            <NavbarTab> User Login</NavbarTab>
+            <NavbarTab> User Register</NavbarTab>
+            <NavbarTab> Partner Login</NavbarTab>
+            <NavbarTab> Partner Register</NavbarTab>
         </TopNavTab>
         
     </>)
