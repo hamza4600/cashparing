@@ -62,7 +62,13 @@
 .Home{
   margin-top: 1px;
 }
-
+.Lis{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
 /* for mobile css */
 
 @media screen and (max-width: 768px) {
@@ -78,9 +84,9 @@
 
 @media screen and (max-width: 530px) {
   .input{
-    top: 2.4em;
+    top: 2.48em;
     width: 100vw;
-    right: 0.2em;
+    left: 0.0em;
     /* display: none !important; */
   }
 }

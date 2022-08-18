@@ -164,17 +164,9 @@ export const NavbarTab = styled.div`
 export const NavList = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
-    overflow: auto;
+    overflow: hidden;
+    height: auto;
     }
     `;      
-
-export const NavListData = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    overflow: auto;
-    
-    `;

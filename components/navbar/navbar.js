@@ -1,4 +1,4 @@
-import { Nav, NavbarIcons, NavbarTab, NavList, NavListData, TopNavTab } from "./structure"
+import { Nav, NavbarIcons, NavbarTab, NavList, TopNavTab } from "./structure"
 
 // AiOutlineMenu
 import { AiOutlineMenu } from "react-icons/ai";
@@ -13,7 +13,7 @@ import styles from "./nav.module.css";
 import { useHover } from "../../Hooks/useHover";
  
 export default function Navbar() {
-    const [serach, searchbar] = useToggle(false);
+    const [serach , searchbar] =useToggelDropDown({initialState: false});
     const [ismenu , optionsMenu] =useToggelDropDown({initialState: false});
 
     const [flag , options] =useToggelDropDown({initialState: false});
@@ -28,12 +28,15 @@ export default function Navbar() {
         optionsMenu.toggle();
         options.off();
         optionsUser.off();
+        searchbar.off();
+
     }
 
     const flagdropdown =()=> {
         options.toggle();
         optionsMenu.off();
         optionsUser.off();
+        searchbar.off();
 
     }
 
@@ -41,8 +44,15 @@ export default function Navbar() {
         optionsUser.toggle();
         optionsMenu.off();
         options.off();
+        searchbar.off();
     }
 
+    const search=()=>{
+        searchbar.toggle();
+        // optionsMenu.off();
+        // options.off();
+        // optionsUser.off();
+    }
      
 return(<>
         <Nav>
@@ -65,7 +75,7 @@ return(<>
                 </p>
                 
                 <TopNavIcons size={20}      onClick={toptoggle} />
-                <FiSearch size={20}         onClick={searchbar}/>
+                <FiSearch size={20}         onClick={search}/>
                 <HiOutlineUser size={20}    onClick={userdropdown}/>  
                 <FiFlag size={20}           onClick={flagdropdown}  />
             </NavbarIcons>
@@ -103,10 +113,11 @@ export const TopDropDown = ()=>{
     const OpenTwo=()=>{
         optionsShoTwo.toggle();
         optionsMenu.off();
-        category.off();
+        categorySho.off();
     }
     const showcaterory=()=>{
         categorySho.toggle();
+        optionsShoTwo.off();
     }
 
     return(<>
@@ -114,27 +125,28 @@ export const TopDropDown = ()=>{
         <TopNavTab left={true}>
     
     <NavbarTab onClick={showcaterory}>Main Categories</NavbarTab>
-    { category ?  
-    <div style={{width: "100%"}}>
+    {/* { category ?  
+     <div style={{width: "100%"}}>
     <NavbarTab  >Automotive</NavbarTab>
     <NavbarTab  >Medican</NavbarTab>
     <NavbarTab  >Garments</NavbarTab>
     <NavbarTab  >Shoes</NavbarTab>
     <NavbarTab  onClick={Open}>Food</NavbarTab>
-    </div>
+     </div> 
+    : null } */}
+
+{ category ?  
+    <NavList>
+        <NavbarTab  onClick={Open}>Food</NavbarTab>
+        
+    </NavList>
+    
     : null }
     {ismenu ? 
-    <NavList>
-        
-        <NavListData onClick={handTwo}>
-            <NavbarTab>SUB AC Services </NavbarTab>
-                {isSho? <div style={{width:"100%"}}>
-                    <NavbarTab>Haier 310</NavbarTab>
-                    <NavbarTab>AVL</NavbarTab>
-                    <NavbarTab>Mahl</NavbarTab>
-                    <NavbarTab>BrainBee</NavbarTab>
-                </div> : null }
-        </NavListData>
+    <NavList>    
+
+            <NavbarTab onClick={handTwo}>SUB AC Services </NavbarTab>
+                {isSho? <DummyList/>: null }
 
         <NavbarTab> Comprosser</NavbarTab>
         <NavbarTab> Diagnoises</NavbarTab>
@@ -149,7 +161,6 @@ export const TopDropDown = ()=>{
      
      </NavList> : null}
 
-
      {/* Two */}
      <NavbarTab  onClick={OpenTwo}>Contact Us</NavbarTab>
     {ismenuTwo ? 
@@ -160,21 +171,8 @@ export const TopDropDown = ()=>{
         <NavbarTab> Events</NavbarTab>
         <NavbarTab> Terms</NavbarTab>
         <NavbarTab> Techinical Support</NavbarTab>
-        <NavbarTab> Contact Us</NavbarTab>
-
-        {/* <NavListData onClick={handTwo}>
-            <NavbarTab>Sub Drop Downs</NavbarTab>
-                {isSho? <div style={{width:"100%"}}>
-                    <NavbarTab>OPne</NavbarTab>
-                    <NavbarTab>OPne</NavbarTab>
-                    <NavbarTab>OPne</NavbarTab>
-                    <NavbarTab>OPne</NavbarTab>
-                </div> : null }
-        </NavListData> */}
-     
+        <NavbarTab> Contact Info</NavbarTab>
      </NavList> : null}  
-
-
 
         </TopNavTab>
     
@@ -261,3 +259,15 @@ export const DropDown =({title})=>{
      </NavList> : null}
     </>)
 } 
+
+
+
+export const DummyList =()=>{
+    return(<div className={styles.Lis}>
+        <NavbarTab> One</NavbarTab>
+        <NavbarTab> Two</NavbarTab>
+        <NavbarTab> Three</NavbarTab>
+        <NavbarTab> Foure</NavbarTab>
+        <NavbarTab> Five</NavbarTab>
+    </div>)
+}
